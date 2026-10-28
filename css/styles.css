@@ -1,0 +1,588 @@
+/* ===== ESTILOS GENERALES ===== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* body en columna para que el footer quede abajo aunque haya poco contenido */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff8f0;
+    color: #2b2118;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;/*Permite que el elemento main ocupe todo el espacio disponible dentro del body*/
+}
+
+img {
+    max-width: 100%;
+}
+
+.oculto {
+    display: none;
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+
+.seccion {
+    margin-bottom: 50px; /*aplica ese espacio de separacion hacia abajo*/
+}
+
+.seccion h2 {
+    font-size: 28px;
+    color: #7c2d12;
+    margin-bottom: 15px;
+}
+
+/* ===== HEADER Y MENÚ ===== */
+/* sticky para que el menú siempre se vea al hacer scroll */
+.encabezado {
+    background-color: #7c2d12;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Flexbox: logo a la izquierda y menú a la derecha */
+.encabezado-contenido {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 12px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+}
+
+.menu a:hover {
+    background-color: #9a3b17;
+}
+
+/* página activa */
+.menu a.activo {
+    background-color: #fff8f0;
+    color: #7c2d12;
+}
+
+/* ===== HERO ===== */
+
+.hero {
+    background-color: #7c2d12;
+    background-image: linear-gradient(rgba(43, 33, 24, 0.65), rgba(124, 45, 18, 0.65)), url("../img/Hero1.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 90px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.hero h1 {
+    font-size: 44px;
+    max-width: 800px;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 18px;
+    max-width: 700px;
+}
+
+/* ===== BOTONES ===== */
+
+.boton {
+    display: inline-block;
+    background-color: #c2410c;
+    color: white;
+    text-decoration: none;
+    border: 2px solid #c2410c;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+
+.boton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.boton:focus-visible,
+.menu a:focus-visible,
+.chip:focus-visible {
+    outline: 3px solid #fbbf24;
+    outline-offset: 2px;
+}
+
+.boton-claro {
+    background-color: #fde68a;
+    border-color: #fde68a;
+    color: #7c2d12;
+}
+
+/*==== Filtro de recetas destacadas =====*/
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.chip {
+    background-color: white;
+    color: #7c2d12;
+    border: 2px solid #c2410c;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.chip:hover {
+    background-color: #ffedd5;
+}
+
+/* botón de filtro seleccionado */
+.chip.activo {
+    background-color: #c2410c;
+    color: white;
+}
+
+/* ===== TARJETAS DE RECETAS ===== */
+
+.rejilla-recetas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: start;
+}
+
+.tarjeta-receta {
+    background-color: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    display: flex;
+    flex-direction: column;
+
+    /*Para que ocupe todo el espacio y asi 
+    queden todas las tarjetas del mismo tamaño*/
+    height: 100%;
+}
+
+.tarjeta-receta:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* object-fit: cover recorta la foto para que todas midan lo mismo */
+.tarjeta-imagen {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Flexbox en columna para acomodar el texto dentro de la tarjeta */
+.tarjeta-cuerpo {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.tarjeta-cuerpo h3 {
+    color: #7c2d12;
+    font-size: 20px;
+}
+
+.etiqueta {
+    align-self: flex-start;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    background-color: #e5e7eb;
+    color: #1f2937;
+}
+
+.etiqueta-rapida {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.etiqueta-economica {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.etiqueta-vegetariana {
+    background-color: #ecfccb;
+    color: #3f6212;
+}
+
+.etiqueta-desayuno {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.datos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    font-size: 14px;
+    color: #5c4a3d;
+}
+
+.estado-vacio {
+    grid-column: 1 / -1;
+    text-align: center;
+    background-color: white;
+    border: 2px dashed #d6c3b0;
+    border-radius: 16px;
+    padding: 30px;
+    color: #5c4a3d;
+}
+
+/* ===== FOOTER ===== */
+
+.pie {
+    background-color: #2b2118;
+    color: #f5e6d3;
+    text-align: center;
+    padding: 25px 20px;
+    font-size: 14px;
+}
+
+/* ===== BANNER DE PÁGINAS INTERNAS ===== */
+
+.hero-pequeno {
+    padding: 45px 20px;
+}
+
+.hero-pequeno h1 {
+    font-size: 36px;
+}
+
+/* ===== BUSCADOR Y FILTROS ===== */
+
+.panel-filtros {
+    background-color: white;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 15px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.campo label {
+    font-weight: bold;
+}
+
+.campo input,
+.campo select {
+    width: 100%;
+    padding: 11px;
+    border: 2px solid #d6c3b0;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    background-color: white;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.campo input:focus,
+.campo select:focus {
+    outline: none;
+    border-color: #c2410c;
+    box-shadow: 0 0 6px rgba(194, 65, 12, 0.35);
+}
+
+.filtros-extra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.casilla {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.casilla input {
+    width: 20px;
+    height: 20px;
+}
+
+.contador {
+    color: #5c4a3d;
+    margin-bottom: 20px;
+}
+
+/* ===== BOTONES DE LAS TARJETAS ===== */
+
+.boton-secundario {
+    background-color: white;
+    color: #c2410c;
+}
+
+.boton-guardada {
+    background-color: #166534;
+    border-color: #166534;
+}
+
+.boton-pequeno {
+    padding: 8px 14px;
+    font-size: 14px;
+}
+
+.tarjeta-acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 14px 18px 18px;
+}
+
+/* ===== DETALLE DE LA RECETA ===== */
+
+.detalle {
+    background-color: #fffaf5;
+    border-top: 1px dashed #e0c7ae;
+    padding: 15px 18px;
+}
+
+.detalle h4 {
+    color: #7c2d12;
+    margin: 8px 0 4px;
+}
+
+.detalle ul,
+.detalle ol {
+    margin-left: 22px;
+    font-size: 15px;
+}
+
+/* ===== MENSAJES ===== */
+
+/* mensaje flotante abajo de la pantalla */
+.mensaje {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    max-width: 90%;
+    text-align: center;
+    padding: 14px 24px;
+    border-radius: 10px;
+    font-weight: bold;
+    color: white;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+.mensaje.exito {
+    background-color: #166534;
+}
+
+.mensaje.error {
+    background-color: #b91c1c;
+}
+
+.mensaje.aviso {
+    background-color: #92400e;
+}
+
+
+/* ===== FORMULARIO DE MI LISTA ===== */
+
+.seccion-intro {
+    margin-bottom: 18px;
+}
+
+.formulario-receta {
+    background-color: white;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.rejilla-formulario {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 20px;
+}
+
+.campo-ancho {
+    grid-column: 1 / -1;
+}
+
+.campo textarea {
+    width: 100%;
+    padding: 11px;
+    border: 2px solid #d6c3b0;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    resize: vertical;
+}
+
+.campo textarea:focus {
+    outline: none;
+    border-color: #c2410c;
+    box-shadow: 0 0 6px rgba(194, 65, 12, 0.35);
+}
+
+.error-campo {
+    color: #b91c1c;
+    font-size: 13px;
+}
+
+.campo input.campo-invalido,
+.campo select.campo-invalido,
+.campo textarea.campo-invalido {
+    border-color: #b91c1c;
+}
+
+.acciones-formulario {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.tarjeta-personal .tarjeta-cuerpo {
+    padding-bottom: 12px;
+}
+
+/* ===== MEDIA QUERIES ===== */
+
+/* Tablet: 900px o menos */
+@media (max-width: 900px) {
+
+    .rejilla-recetas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .panel-filtros {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .campo-buscador {
+        grid-column: 1 / -1;
+    }
+}
+
+/* Celular: 600px o menos */
+@media (max-width: 600px) {
+
+    .encabezado-contenido {
+        justify-content: center;
+    }
+
+    .rejilla-recetas {
+        grid-template-columns: 1fr;
+    }
+
+    .rejilla-formulario {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 60px 20px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero-pequeno {
+        padding: 35px 20px;
+    }
+
+    .hero-pequeno h1 {
+        font-size: 26px;
+    }
+
+    .panel-filtros {
+        grid-template-columns: 1fr;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .seccion h2 {
+        font-size: 24px;
+    }
+}
+

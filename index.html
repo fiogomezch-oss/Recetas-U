@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recetas U | Inicio</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body>
+    <header class="encabezado">
+        <div class="encabezado-contenido">
+            <a class="marca" href="index.html">
+                <img src="img/logo.png" alt="Logo de Recetas U" width="40" height="40">
+                <span>Recetas U</span>
+            </a>
+            <nav class="menu">
+                <a href="index.html" class="activo" aria-current="page">Inicio</a>
+                <a href="catalogo.html">Recetas</a>
+                <a href="mi-lista.html">Mi lista</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Recetas fáciles, rápidas y económicas para estudiantes</h1>
+            <p>Muchos estudiantes universitarios cuentan con poco tiempo para cocinar y con un presupuesto ajustado, y casi siempre cuesta encontrar ideas de comidas rápidas, baratas y fáciles de hacer. Recetas U es una página web interactiva para buscar, filtrar y guardar recetas de cocina económicas y rápidas, pensada para la vida universitaria. Explora el catálogo, filtra por tiempo o presupuesto, guarda tus preferidas y agrega tus propias recetas.</p>
+            <a class="boton boton-claro" href="catalogo.html">Ver recetas</a>
+        </section>
+
+        <div class="contenedor">
+
+            <section class="seccion">
+                <h2>Recetas destacadas</h2>
+                <div class="chips" role="group" aria-label="Filtrar recetas destacadas por categoría">
+                    <button type="button" class="chip activo" data-categoria="todas">Todas</button>
+                    <button type="button" class="chip" data-categoria="Rápida">Rápida</button>
+                    <button type="button" class="chip" data-categoria="Económica">Económica</button>
+                    <button type="button" class="chip" data-categoria="Vegetariana">Vegetariana</button>
+                    <button type="button" class="chip" data-categoria="Desayuno">Desayuno</button>
+                </div>
+                <div id="destacadas" class="rejilla-recetas"></div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="pie">
+        <p>© 2026 Recetas U</p>
+    </footer>
+
+    <script src="js/comun.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

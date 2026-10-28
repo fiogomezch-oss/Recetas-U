@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recetas U | Recetas</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="encabezado">
+        <div class="encabezado-contenido">
+            <a class="marca" href="index.html">
+                <img src="img/logo.png" alt="Logo de Recetas U" width="40" height="40">
+                <span>Recetas U</span>
+            </a>
+            <nav class="menu">
+                <a href="index.html">Inicio</a>
+                <a href="catalogo.html" class="activo" aria-current="page">Recetas</a>
+                <a href="mi-lista.html">Mi lista</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero hero-pequeno">
+            <h1>Catálogo de recetas</h1>
+        </section>
+
+        <div class="contenedor">
+            <section class="seccion">
+                <h2>Buscar y filtrar</h2>
+                <div class="panel-filtros">
+                    <div class="campo campo-buscador">
+                        <label for="buscador">Buscar por nombre o ingrediente</label>
+                        <input type="search" id="buscador" placeholder="Ejemplo: huevo, atún, arroz...">
+                    </div>
+                    <div class="campo">
+                        <label for="filtro-categoria">Categoría</label>
+                        <select id="filtro-categoria">
+                            <option value="todas">Todas</option>
+                            <option value="Rápida">Rápida</option>
+                            <option value="Económica">Económica</option>
+                            <option value="Vegetariana">Vegetariana</option>
+                            <option value="Desayuno">Desayuno</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="filtro-tiempo">Tiempo</label>
+                        <select id="filtro-tiempo">
+                            <option value="0">Cualquiera</option>
+                            <option value="10">Hasta 10 min</option>
+                            <option value="20">Hasta 20 min</option>
+                            <option value="30">Hasta 30 min</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="filtro-precio">Presupuesto</label>
+                        <select id="filtro-precio">
+                            <option value="0">Cualquiera</option>
+                            <option value="1000">Hasta ₡1.000</option>
+                            <option value="1500">Hasta ₡1.500</option>
+                            <option value="2000">Hasta ₡2.000</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="filtros-extra">
+                    <label class="casilla">
+                        <input type="checkbox" id="solo-favoritas">
+                        Mostrar solo mis favoritas
+                    </label>
+                    <button type="button" id="limpiar-filtros" class="boton boton-secundario boton-pequeno">Limpiar filtros</button>
+                </div>
+            </section>
+
+            <section class="seccion">
+                <h2>Resultados</h2>
+                <p id="contador" class="contador" aria-live="polite"></p>
+                <div id="lista-recetas" class="rejilla-recetas"></div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="pie">
+        <p>© 2026 Recetas U</p>
+    </footer>
+
+    <p id="mensaje" class="mensaje oculto" role="status"></p>
+
+    <script src="js/comun.js"></script>
+    <script src="js/catalogo.js"></script>
+</body>
+</html>

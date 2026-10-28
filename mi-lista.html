@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recetas U | Mi lista</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="encabezado">
+        <div class="encabezado-contenido">
+            <a class="marca" href="index.html">
+                <img src="img/logo.png" alt="Logo de Recetas U" width="40" height="40">
+                <span>Recetas U</span>
+            </a>
+            <nav class="menu">
+                <a href="index.html">Inicio</a>
+                <a href="catalogo.html">Recetas</a>
+                <a href="mi-lista.html" class="activo" aria-current="page">Mi lista</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero hero-pequeno">
+            <h1>Mi lista de recetas</h1>
+            <p>Crea tus propias recetas y consulta tus favoritas del catálogo.</p>
+        </section>
+
+        <div class="contenedor">
+            <section class="seccion">
+                <h2>Agregar mi receta</h2>
+                <p class="seccion-intro">Completa los datos de tu receta. Escribe cada ingrediente y cada paso en una línea diferente.</p>
+
+                <form id="formulario-receta" class="formulario-receta" novalidate>
+                    <div class="rejilla-formulario">
+                        <div class="campo">
+                            <label for="nombre-receta">Nombre de la receta</label>
+                            <input id="nombre-receta" type="text" placeholder="Ejemplo: Arroz con pollo" required aria-describedby="error-nombre-receta">
+                            <small id="error-nombre-receta" class="error-campo" aria-live="polite"></small>
+                        </div>
+
+                        <div class="campo">
+                            <label for="categoria-receta">Categoría</label>
+                            <select id="categoria-receta" required aria-describedby="error-categoria-receta">
+                                <option value="">Selecciona una categoría</option>
+                                <option value="Rápida">Rápida</option>
+                                <option value="Económica">Económica</option>
+                                <option value="Vegetariana">Vegetariana</option>
+                                <option value="Desayuno">Desayuno</option>
+                            </select>
+                            <small id="error-categoria-receta" class="error-campo" aria-live="polite"></small>
+                        </div>
+
+                        <div class="campo">
+                            <label for="tiempo-receta">Tiempo de preparación (minutos)</label>
+                            <input id="tiempo-receta" type="number" min="1" step="1" placeholder="Ejemplo: 20" required aria-describedby="error-tiempo-receta">
+                            <small id="error-tiempo-receta" class="error-campo" aria-live="polite"></small>
+                        </div>
+
+                        <div class="campo">
+                            <label for="precio-receta">Precio estimado (colones)</label>
+                            <input id="precio-receta" type="number" min="0" step="1" placeholder="Ejemplo: 1500" required aria-describedby="error-precio-receta">
+                            <small id="error-precio-receta" class="error-campo" aria-live="polite"></small>
+                        </div>
+
+                        <div class="campo campo-ancho">
+                            <label for="ingredientes-receta">Ingredientes (uno por línea)</label>
+                            <textarea id="ingredientes-receta" rows="4" placeholder="1 taza de arroz&#10;2 huevos&#10;Sal al gusto" required aria-describedby="error-ingredientes-receta"></textarea>
+                            <small id="error-ingredientes-receta" class="error-campo" aria-live="polite"></small>
+                        </div>
+
+                        <div class="campo campo-ancho">
+                            <label for="preparacion-receta">Preparación (un paso por línea)</label>
+                            <textarea id="preparacion-receta" rows="4" placeholder="Lava el arroz.&#10;Cocina durante 15 minutos.&#10;Sirve caliente." required aria-describedby="error-preparacion-receta"></textarea>
+                            <small id="error-preparacion-receta" class="error-campo" aria-live="polite"></small>
+                        </div>
+                    </div>
+
+                    <div class="acciones-formulario">
+                        <button type="submit" class="boton">Guardar receta</button>
+                        <button type="button" class="boton boton-secundario" id="limpiar-formulario">Limpiar formulario</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="seccion">
+                <h2>Mis recetas creadas</h2>
+                <p id="contador-personales" class="contador" aria-live="polite"></p>
+                <div id="lista-personales" class="rejilla-recetas"></div>
+            </section>
+
+            <section class="seccion">
+                <h2>Mis recetas favoritas</h2>
+                <p class="seccion-intro">Aquí aparecen las recetas que guardaste en el <a href="catalogo.html">Catálogo</a>.</p>
+                <p id="contador-favoritas" class="contador" aria-live="polite"></p>
+                <div id="lista-favoritas" class="rejilla-recetas"></div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="pie">
+        <p>© 2026 Recetas U</p>
+    </footer>
+
+    <p id="mensaje" class="mensaje oculto" role="status" aria-live="polite"></p>
+
+    <script src="js/comun.js"></script>
+    <script src="js/mi-lista.js"></script>
+</body>
+</html>
