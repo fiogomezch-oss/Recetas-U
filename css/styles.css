@@ -1,4 +1,8 @@
-/* ===== ESTILOS GENERALES ===== */
+/* ===== 
+ESTILOS GENERALES 
+Se eliminana margenes y espacios predeterminados
+box-sizing facilita calcular el tamaño de los elementos
+===== */
 
 * {
     margin: 0;
@@ -6,7 +10,10 @@
     box-sizing: border-box;
 }
 
-/* body en columna para que el footer quede abajo aunque haya poco contenido */
+/* ==================================================
+CUERPO DE LA PÁGINA
+Flex-direction: column permite mantener el footer abajo aunque haya poco contenido.
+================================================== */
 body {
     font-family: Arial, sans-serif;
     background-color: #fff8f0;
@@ -24,6 +31,10 @@ main {
 img {
     max-width: 100%;
 }
+
+/* ================
+OCULTAR ELEMENTOS
+=================== */
 
 .oculto {
     display: none;

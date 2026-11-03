@@ -50,7 +50,7 @@ function crearTarjeta(receta) {
     datos.appendChild(crearElemento('span', '', 'Dificultad: ' + receta.estado));
     cuerpo.appendChild(datos);
 
-    tarjeta.appendChild(imagen);
+    tarjeta.appendChild(imagen); 
     tarjeta.appendChild(cuerpo);
     return tarjeta;
 }

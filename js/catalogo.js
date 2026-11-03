@@ -20,7 +20,7 @@ async function iniciar() {
         mostrarRecetas();
     } catch (error) {
         listaRecetas.textContent = '';
-        listaRecetas.appendChild(crearElemento('p', 'estado-vacio', 'No se pudieron cargar las recetas. Abre el sitio con Live Server o desde GitHub Pages.'));
+        listaRecetas.appendChild(crearElemento('p', 'estado-vacio', 'No se pudieron cargar las recetas.'));
     }
 }
 

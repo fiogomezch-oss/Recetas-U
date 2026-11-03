@@ -14,7 +14,7 @@ async function iniciar() {
         mostrarDestacadas();
     } catch (error) {
         contenedorDestacadas.textContent = '';
-        contenedorDestacadas.appendChild(crearElemento('p', 'estado-vacio', 'No se pudieron cargar las recetas. Abre el sitio con Live Server o desde GitHub Pages.'));
+        contenedorDestacadas.appendChild(crearElemento('p', 'estado-vacio', 'No se pudieron cargar las recetas.'));
     }
 }
 

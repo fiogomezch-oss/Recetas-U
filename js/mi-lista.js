@@ -102,7 +102,7 @@ function guardarReceta(evento) {
         return;
     }
 
-    // Objeto con la misma información que se pidió en el Avance 1.
+    // Objeto con la informacion de la nueva receta
     const nuevaReceta = {
         id: obtenerNuevoId(),
         nombre: document.querySelector('#nombre-receta').value.trim(),
@@ -119,7 +119,7 @@ function guardarReceta(evento) {
         guardarLocal(CLAVE_PERSONALES, recetasPersonales);
     } catch (error) {
         recetasPersonales.pop();
-        mostrarMensaje('No se pudo guardar la receta en este navegador.', 'error');
+        mostrarMensaje('No se pudo guardar la receta', 'error');
         return;
     }
 
@@ -172,7 +172,7 @@ function eliminarPersonal(id) {
     try {
         guardarLocal(CLAVE_PERSONALES, nuevasRecetas);
     } catch (error) {
-        mostrarMensaje('No se pudo eliminar la receta del navegador.', 'error');
+        mostrarMensaje('No se pudo eliminar la receta.', 'error');
         return;
     }
 
@@ -189,7 +189,7 @@ async function cargarFavoritas() {
         mostrarFavoritas();
     } catch (error) {
         contadorFavoritas.textContent = '';
-        listaFavoritas.appendChild(crearElemento('p', 'estado-vacio', 'No se pudieron cargar las favoritas. Abre el sitio con Live Server o desde GitHub Pages.'));
+        listaFavoritas.appendChild(crearElemento('p', 'estado-vacio', 'No se pudieron cargar las favoritas.'));
     }
 }
 
